@@ -1,0 +1,14 @@
+extends ../layouts/main.pug
+
+block content
+  .container
+    header
+      h1= `Edit ${blog.title}`
+    
+block content
+  .container
+    header
+      h1 Edit Blog Post
+
+    div
+      include ./form.pug
