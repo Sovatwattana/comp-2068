@@ -8,12 +8,9 @@ exports.new = (req, res) => {
 
 exports.create = (req, res) => {
   Author.create(req.body.author)
-    .then(() => {
-      req.flash('success', 'You are now registered');
-      res.redirect('/login');
-    })
-    .catch(err => {
-      req.flash('error', `ERROR: ${err}`);
-      res.redirect('/authors/new');
-    });
+    .then(() => 
+      res.status(201).send({succes: "Author was create successfully"})
+    )
+    .catch(err => res.status(400).send(err));
+    
 };
